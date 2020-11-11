@@ -26,9 +26,10 @@
 
     public List<Bug> Bugs { get; set; } = null;
 
-    protected override async Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
         Bugs = BugService.GetBugs().OrderBy(x => x.Priority).ToList();
-    }
+            base.OnInitialized();
+}
 
 }
